@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="aajilaT5.Vistas.vPersona"
+             Title="vPersona">
+    <FlexLayout Direction="Column">
+        <VerticalStackLayout>
+            <Label 
+        Text="BASE DE DATOS: PERSONA"
+        FontSize="20"
+        HorizontalOptions="Center" />
+            <Entry x:Name="txtNombre"
+                   Placeholder="Ingrese el nombre"/>
+            <Entry x:Name="txtCorreo"
+                   Placeholder="ingrese el correo"/>
+            <Entry x:Name="txtTelefono"
+                   Placeholder="ingrese el telefono"/>
+            <Button
+                x:Name="saveButton" 
+                Text="Guardar"
+                Clicked="saveButton_Clicked"/>
+        </VerticalStackLayout>
+        <ListView x:Name="listView" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="listView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <VerticalStackLayout Padding="5">
+                            <Label Text="{Binding Nombre}" FontSize="17" FontAttributes="Bold"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding Email}"/>
+                                <Label Grid.Column="2" Text="{Binding Telefono}" FontAttributes="Bold"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+    </FlexLayout>
+            
+</ContentPage>
